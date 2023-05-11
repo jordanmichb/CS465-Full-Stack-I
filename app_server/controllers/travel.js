@@ -1,6 +1,5 @@
 const travel = (req, res) => {
-    pageTitle = process.env.npm_package_description + ' - Travel';
-    res.render('travel', {title: pageTitle});
+    res.render('travel', {title: 'Travlr Getaways', active: {travel: true}});
 };
 
 module.exports = {
