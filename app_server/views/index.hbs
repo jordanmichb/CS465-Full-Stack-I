@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Dive Sites - Bhaccasyoniztas Beach Resort Website Template</title>
+	<title>Travlr Getaways Website Template</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
@@ -11,43 +11,52 @@
 		<div id="page">
 			{{> header}}
 			<div id="contents">
-				<div class="box">
-					<div>
-						<div class="body">
-							<h1>Travel</h1>
-							<ul id="sites">
-								<li>
-									<a href="/travel"><img src="images/reef1.jpg" alt="Img"></a>
-									<h2><a href="/travel">Gale Reef</a></h2>
-									<p>
-										Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.
-									</p>
-									<p>
-										Sed consequat libero ut turpis venenatis ut aliquam risus semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem ullamcorper vitae laoreet.
-									</p>
-								</li>
-								<li>
-									<a href="/travel"><img src="images/reef2.jpg" alt="Img"></a>
-									<h2><a href="/travel">Dawson’s Reef</a></h2>
-									<p>
-										Integer magna leo, posuere et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat volutpat. Nunc nisi mi, elementum sit amet aliquet quis, tristique quis nisl. Curabitur odio lacus, blandit ut hendrerit
-									</p>
-									<p>
-										vulputate, vulputate at est. Morbi aliquet viverra metus eu consectetur. In lorem dui, elementum sit amet convallis ac, tincidunt vel sapien.
-									</p>
-								</li>
-								<li>
-									<a href="/travel"><img src="images/reef3.jpg" alt="Img"></a>
-									<h2><a href="/travel">Claire’s REEF</a></h2>
-									<p>
-										Donec sed felis risus. Nulla facilisi. Donec a orci tellus, et auctor odio. Fusce ac orci nibh, quis semper arcu. Cras orci neque, euismod et accumsan ac, sagittis molestie lorem. Proin odio sapien, elementum at tempor non.
-									</p>
-									<p>
-										Vulputate eget libero. In hac habitasse platea dictumst. Integer purus justo, egestas eu consectetur eu, cursus in tortor. Quisque nec nunc ac mi ultrices iaculis.
-									</p>
-								</li>
-							</ul>
+				<div id="adbox">
+					<img src="images/sea-sound.jpg" alt="Img">
+					<h1>Enjoy the Summer with Us!</h1>
+					<p>
+						This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template without linking back to us. If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forum</a>.
+					</p>
+				</div>
+				<div id="main">
+					<div class="box">
+						<div>
+							<div>
+								<h3>Latest Blog</h3>
+								<ul>
+									{{#getLatestBlogs latest}}
+									<li>
+										<h4><a href={{this.link}}>{{this.title}}</a></h4>
+										<span>{{this.date}}</span>
+										<p>
+											{{this.preview}}
+										</p>
+									</li>
+									{{/getLatestBlogs}}
+								</ul>
+							</div>
 						</div>
+					</div>
+					<div id="testimonials" class="box">
+						<div>
+							<div>
+								<h3>Testimonials</h3>
+								<p>
+									“In hac habitasse platea dictumst. Integer purus justo, egestas eu consectetur eu, cursus in tortor. Quisque nec nunc ac mi ultrices iaculis. Aenean quis elit mauris, nec vestibulum lorem.” <span>- <a href="index.html">Juan De La Cruz</a></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="sidebar">
+					<div class="section">
+						<a href="/rooms"><img src="images/rooms.png" alt="Img"></a>
+					</div>
+					<div class="section">
+						<a href="/travel"><img src="images/dive-site.png" alt="Img"></a>
+					</div>
+					<div class="section">
+						<a href="/meals"><img src="images/food.png" alt="Img"></a>
 					</div>
 				</div>
 			</div>

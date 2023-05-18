@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
 
+
 const indexRouter = require('./app_server/routes/index');
 const usersRouter = require('./app_server/routes/users');
 const travelRouter = require('./app_server/routes/travel');
@@ -53,6 +54,17 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// Custom Helpers
+hbs.registerHelper("getLatestBlogs", function(context, options) {
+  var ret = "";
+  
+  for (let i = 0; i < 2; i++) {
+      ret = ret + options.fn(context[i]);
+  }
+
+  return ret
 });
 
 module.exports = app;
