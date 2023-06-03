@@ -19,7 +19,7 @@
 								<ul>
 									{{#each blogs}}
 										<li>
-											<a href={{this.link}}>{{this.title}}</a>
+											<a href="/api/blogs/{{this.title}}">{{this.title}}</a>
 										</li>
 									{{/each}}
 								</ul>
@@ -27,7 +27,7 @@
 								<ul>
 									{{#each tips}}
 										<li>
-											<a href={{this.link}}>{{this.title}}</a>
+											<a href="/api/tips/{{this.title}}">{{this.title}}</a>
 										</li>
 									{{/each}}
 								</ul>
