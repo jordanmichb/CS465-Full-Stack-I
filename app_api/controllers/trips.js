@@ -85,7 +85,7 @@ const tripsUpdateTrip = async (req, res) => {
                 return res
                     .status(404)
                     .send({
-                        message: "Trip not found with codee " + req.params.tripCode
+                        message: "Trip not found with code " + req.params.tripCode
                     });
             }
             res.send(trip);
@@ -94,7 +94,7 @@ const tripsUpdateTrip = async (req, res) => {
                 return res 
                     .status(404)
                     .send({
-                        message: "Trip not found with codee " + req.params.tripCode
+                        message: "Trip not found with code " + req.params.tripCode
                     })
             }
             return res
@@ -103,9 +103,30 @@ const tripsUpdateTrip = async (req, res) => {
         });
 }
 
+const tripsDeleteTrip = async (req, res) => {
+    model
+        .deleteOne({ 'code': req.params.tripCode })
+        .exec((err, trip) => {
+            if (!trip) {
+                return res
+                    .status(404)
+                    .json({ "message": "trip not found" });
+            } else if (err) {
+                return res
+                    .status(404)
+                    .json(err);
+            } else {
+                return res
+                    .status(200)
+                    .json(trip);
+            }
+        });
+};
+
 module.exports = {
     tripsList,
     tripsFindCode,
     tripsAddTrip,
-    tripsUpdateTrip
+    tripsUpdateTrip,
+    tripsDeleteTrip
 };

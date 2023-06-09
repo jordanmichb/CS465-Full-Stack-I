@@ -8,7 +8,8 @@
     </p>
     <p class="card-text" [innerHTML]="trip.description"></p>
   </div>
-  <div>
-    <button (click)="editTrip(trip)" class="btn btn-info">Edit</button>
+  <div class="px-3 pb-3">
+    <button (click)="editTrip(trip)" class="btn btn-block btn-info">Edit</button>
+    <button (click)="deleteTrip(trip)" class="btn btn-block btn-danger">Delete</button>
   </div>
 </div>
