@@ -58,6 +58,15 @@ app.use('/meals', mealsRouter);
 app.use('/news', newsRouter);
 app.use('/api', apiRouter);
 
+// Catch unauthorized error and create 401
+app.use((err, req, res, next) => {
+  if (err.name === 'UnauthorizedError') {
+    res
+      .status(401)
+      .json({ "message": err.name + ": " + err.message });
+  }
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
