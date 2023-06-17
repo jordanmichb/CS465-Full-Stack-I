@@ -24,7 +24,7 @@ export class EditTripComponent implements OnInit {
     let tripCode = localStorage.getItem("tripCode");
     if (!tripCode) {
       alert("Something wrong, couldn't find where I stashed tripCode!");
-      this.router.navigate(['']);
+      this.router.navigate(['list-trips']);
       return;
     }
 
@@ -58,7 +58,7 @@ export class EditTripComponent implements OnInit {
       this.tripService.updateTrip(this.editForm.value)
         .then(data => {
           console.log(data);
-          this.router.navigate(['']);
+          this.router.navigate(['list-trips']);
         });
     }
   }

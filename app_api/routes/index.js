@@ -35,11 +35,14 @@ router
 
 router
     .route('/rooms')
-    .get(roomsController.roomsList);
+    .get(roomsController.roomsList)
+    .post(auth, roomsController.roomsAddRoom);
 
 router
     .route('/rooms/:roomName')
-    .get(roomsController.roomsFindName);
+    .get(roomsController.roomsFindName)
+    .put(auth, roomsController.roomsUpdateRoom)
+    .delete(auth, roomsController.roomsDeleteRoom);
 
 router
     .route('/meals')

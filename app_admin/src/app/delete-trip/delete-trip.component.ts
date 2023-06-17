@@ -25,7 +25,7 @@ export class DeleteTripComponent implements OnInit {
     //let tripCode = localStorage.getItem("tripCode");
     if (!this.tripCode) {
       alert("Something wrong, couldn't find where I stashed tripCode!");
-      this.router.navigate(['']);
+      this.router.navigate(['list-trips']);
       return;
     }
 
@@ -38,7 +38,7 @@ export class DeleteTripComponent implements OnInit {
     this.tripService.deleteTrip(this.tripCode)
       .then(data => {
         console.log(data);
-        this.router.navigate(['']);
+        this.router.navigate(['list-trips']);
       });
   }
 }

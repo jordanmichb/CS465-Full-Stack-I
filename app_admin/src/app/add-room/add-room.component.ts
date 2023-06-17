@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
-import { TripDataService } from '../services/trip-data.service';
+import { RoomDataService } from '../services/room-data.service';
 
 @Component({
-  selector: 'app-add-trip',
-  templateUrl: './add-trip.component.html',
-  styleUrls: ['./add-trip.component.css']
+  selector: 'app-add-room',
+  templateUrl: './add-room.component.html',
+  styleUrls: ['./add-room.component.css']
 })
-export class AddTripComponent implements OnInit {
+export class AddRoomComponent implements OnInit {
 
   addForm: FormGroup;
   submitted = false;
@@ -16,30 +16,26 @@ export class AddTripComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private tripService: TripDataService
+    private roomService: RoomDataService
   ) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       _id: [],
-      code: ['', Validators.required],
       name: ['', Validators.required],
-      length: ['', Validators.required],
-      start: ['', Validators.required],
-      resort: ['', Validators.required],
-      perPerson: ['', Validators.required],
       image: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      rate: ['', Validators.required],
     })
   }
 
   onSubmit() {
     this.submitted = true;
     if (this.addForm.valid) {
-      this.tripService.addTrip(this.addForm.value)
+      this.roomService.addRoom(this.addForm.value)
       .then( data => {
         console.log(data);
-        this.router.navigate(['list-trips']);
+        this.router.navigate(['list-rooms']);
       });
     }
   }
