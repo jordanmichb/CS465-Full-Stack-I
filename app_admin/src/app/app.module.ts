@@ -24,6 +24,13 @@ import { AddRoomComponent } from './add-room/add-room.component';
 import { EditRoomComponent } from './edit-room/edit-room.component';
 import { DeleteRoomComponent } from './delete-room/delete-room.component';
 
+import { MealListingComponent } from './meal-listing/meal-listing.component';
+import { MealCardComponent } from './meal-card/meal-card.component';
+import { MealDataService } from './services/meal-data.service';
+import { AddMealComponent } from './add-meal/add-meal.component';
+import { EditMealComponent } from './edit-meal/edit-meal.component';
+import { DeleteMealComponent } from './delete-meal/delete-meal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +46,12 @@ import { DeleteRoomComponent } from './delete-room/delete-room.component';
     RoomCardComponent,
     AddRoomComponent,
     EditRoomComponent,
-    DeleteRoomComponent
+    DeleteRoomComponent,
+    MealListingComponent,
+    MealCardComponent,
+    AddMealComponent,
+    EditMealComponent,
+    DeleteMealComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +62,8 @@ import { DeleteRoomComponent } from './delete-room/delete-room.component';
   ],
   providers: [
     TripDataService,
-    RoomDataService
+    RoomDataService,
+    MealDataService
   ],
   bootstrap: [AppComponent]
 })

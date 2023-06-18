@@ -46,11 +46,14 @@ router
 
 router
     .route('/meals')
-    .get(mealsController.mealsList);
+    .get(mealsController.mealsList)
+    .post(auth, mealsController.mealsAddMeal);
 
 router
     .route('/meals/:mealName')
-    .get(mealsController.mealsFindName);
+    .get(mealsController.mealsFindName)
+    .put(auth, mealsController.mealsUpdateMeal)
+    .delete(auth, mealsController.mealsDeleteMeal);
 
 router
     .route('/blogs')

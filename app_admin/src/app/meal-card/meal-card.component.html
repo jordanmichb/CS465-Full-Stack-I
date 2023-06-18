@@ -1,0 +1,13 @@
+<div class="card ml-4" style="width: 18rem;">
+  <div class="card-header">{{ meal.name }}</div>
+  <img src="assets/images/{{ meal.image }}" alt="meal thumbnail" class="card-img-top">
+  <div class="card-body">
+    <p class="card-text" [innerHTML]="meal.description"></p>
+  </div>
+  
+  <div *ngIf="isLoggedIn()" class="px-3 pb-3">
+    <button (click)="editMeal(meal)" class="btn btn-block btn-info">Edit</button>
+    <button (click)="deleteMeal(meal)" class="btn btn-block btn-danger">Delete</button>
+  </div>
+  
+</div>

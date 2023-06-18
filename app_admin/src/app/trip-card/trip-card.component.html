@@ -1,3 +1,4 @@
+
 <div class="card ml-4" style="width: 18rem;">
   <div class="card-header">{{ trip.name }}</div>
   <img src="assets/images/{{ trip.image }}" alt="trip thumbnail" class="card-img-top">
@@ -8,7 +9,7 @@
     </p>
     <p class="card-text" [innerHTML]="trip.description"></p>
   </div>
-  <div *ngIf="isLoggedIn()" class="px-3 pb-3">
+  <div *ngIf="isLoggedIn()" class="card-footer">
     <button (click)="editTrip(trip)" class="btn btn-block btn-info">Edit</button>
     <button (click)="deleteTrip(trip)" class="btn btn-block btn-danger">Delete</button>
   </div>

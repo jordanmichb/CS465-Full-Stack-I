@@ -1,0 +1,8 @@
+<div>
+  <button *ngIf="isLoggedIn()" (click)="addMeal()" class="btn btn-info mt-2">Add Room</button>
+</div>
+<div class="row">
+  <div *ngFor="let meal of meals">
+    <app-meal-card [meal]="meal" class="card-deck mt-2"></app-meal-card>
+  </div>
+ </div>

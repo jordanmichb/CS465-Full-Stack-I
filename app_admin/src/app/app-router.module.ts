@@ -13,6 +13,11 @@ import { AddRoomComponent } from './add-room/add-room.component';
 import { EditRoomComponent } from './edit-room/edit-room.component';
 import { DeleteRoomComponent } from './delete-room/delete-room.component';
 
+import { MealListingComponent } from './meal-listing/meal-listing.component';
+import { AddMealComponent } from './add-meal/add-meal.component';
+import { EditMealComponent } from './edit-meal/edit-meal.component';
+import { DeleteMealComponent } from './delete-meal/delete-meal.component';
+
 const routes: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'login', component: LoginComponent},
@@ -26,7 +31,10 @@ const routes: Routes = [
     { path: 'edit-room', component: EditRoomComponent },
     { path: 'delete-room', component: DeleteRoomComponent },
     
-    
+    { path: 'list-meals', component: MealListingComponent },
+    { path: 'add-meal', component: AddMealComponent },
+    { path: 'edit-meal', component: EditMealComponent },
+    { path: 'delete-meal', component: DeleteMealComponent },
 ]
 
 @NgModule({
