@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 
 import { AuthResponse } from '../models/authresponse';
 import { BROWSER_STORAGE } from '../storage';
@@ -19,8 +19,13 @@ export class TripDataService {
 
   public addTrip(formData: Trip): Promise<Trip> {
     console.log('Inside TripDataService#addTrip');
+    const httpOptions = {                                                  
+      headers: new Headers({
+        'Authorization': `Bearer ${this.storage.getItem('travlr-token')}`  
+      })
+    };
     return this.http
-      .post(this.tripUrl, formData) // pass form data in request body
+      .post(this.tripUrl, formData, httpOptions) // pass form data in request body
       .toPromise()
       .then(response => response.json() as Trip[])
       .catch(this.handleError);
@@ -47,8 +52,13 @@ export class TripDataService {
   public updateTrip(formData: Trip): Promise<Trip> {
     console.log('Inside TripDataService#updateTrip');
     console.log(formData);
+    const httpOptions = {                                                  
+      headers: new Headers({
+        'Authorization': `Bearer ${this.storage.getItem('travlr-token')}`  
+      })
+    };
     return this.http
-      .put(this.tripUrl + formData.code, formData)
+      .put(this.tripUrl + formData.code, formData, httpOptions)
       .toPromise()
       .then(response => response.json() as Trip[])
       .catch(this.handleError);
@@ -56,8 +66,13 @@ export class TripDataService {
 
   public deleteTrip(tripCode: string): Promise<Trip> {
     console.log('Inside TripDataService#deleteTrip');
+    const httpOptions = {                                                  
+      headers: new Headers({
+        'Authorization': `Bearer ${this.storage.getItem('travlr-token')}`  
+      })
+    };
     return this.http
-      .delete(this.tripUrl + tripCode)
+      .delete(this.tripUrl + tripCode, httpOptions)
       .toPromise()
       .then(response => response.json() as Trip)
       .catch(this.handleError);
@@ -83,5 +98,13 @@ export class TripDataService {
       .toPromise()
       .then(response => response.json() as AuthResponse)
       .catch(this.handleError);
+  }
+
+  private getHeaders() {
+    const httpOptions = {                                                  
+      headers: new Headers({
+        'Authorization': `Bearer ${this.storage.getItem('travlr-token')}`  
+      })
+    };
   }
 }
