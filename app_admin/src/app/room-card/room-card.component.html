@@ -1,0 +1,14 @@
+<div class="card ml-4" style="width: 18rem;">
+  <div class="card-header">{{ room.name }}</div>
+  <img src="assets/images/{{ room.image }}" alt="room thumbnail" class="card-img-top">
+  <div class="card-body">
+    <p class="card-subtitle mt-3 mb-3 text-muted">
+      Rate: {{room.rate|currency:'USD':true}} / Day
+    </p>
+    <p class="card-text" [innerHTML]="room.description"></p>
+  </div>
+  <div *ngIf="isLoggedIn()" class="px-3 pb-3">
+    <button (click)="editRoom(room)" class="btn btn-block btn-info">Edit</button>
+    <button (click)="deleteRoom(room)" class="btn btn-block btn-danger">Delete</button>
+  </div>
+</div>
